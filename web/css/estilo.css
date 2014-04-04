@@ -1,0 +1,119 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 31, 2014, 1:51:47 PM
+    Author     : arturo
+*/
+
+
+#TEE_Logo{
+    width: 9%; 
+    height: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+#superior{
+    position: absolute;
+    margin: -0.55%;
+    width: 100%;
+    height: 21.75%;
+    background-color: midnightblue;
+
+    
+}
+
+#titulo{
+    position: absolute;    
+    color: white; 
+    bottom: 35%;
+    font-size: 3em;
+    font-family: book antiqua;
+}
+
+#izq{
+    position: absolute;
+    margin: 11.6% 0% 0% -0.55%;
+    width: 11%;
+    height: 100%;
+    background-color: red;    
+}
+
+#verCursos{
+    position: absolute;
+    margin-top: 70%;
+}
+
+
+#verNiveles{
+    position: absolute;
+    margin-top: 120%;
+}
+
+
+#inscribirCurso{
+    position: absolute;
+    margin-top: 170%;
+}
+
+
+#verificarProfesor{
+    position: absolute;
+    margin-top: 220%;
+}
+
+#registrarProfesor{
+    bottom: 5%;
+    right: 1%;
+}
+
+#raya{
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    color: white;
+}
+
+#registrarAlumno{
+    bottom: 5%;
+    right: 11%;
+}
+
+#iniciarSesion{
+    bottom: 20%;
+    right: 1%;
+}
+
+
+
+.casos:hover{
+    font-weight: bold;
+    border: 3px solid white;
+    border-radius: 5px;
+    
+}
+
+.casos{
+    position: absolute;
+    font-size: 1em;
+    font-family: book antiqua; 
+    margin-left: 10%;
+}
+
+.inicial{
+    position: absolute;
+    color: white;
+    text-decoration: none;
+}
+
+.inicial:visited{
+    text-decoration: none;
+    color: #dddddd;
+}
+
+.inicial:hover{
+    text-decoration: underline;
+}
