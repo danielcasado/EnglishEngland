@@ -54,7 +54,7 @@ public class VerProfesores extends HttpServlet {
                 Profesor p = (Profesor)i.next();
                 out.println("<tr id="+p.getNusuario()+" class=info >");
                 out.println("<p class=nombres >"+p.getNombre()+"</p>");
-                out.println("</tr>");                
+                out.println("</tr>");
             }
             out.println("</body>");
             out.println("</html>");
@@ -95,7 +95,7 @@ public class VerProfesores extends HttpServlet {
                 out.println("<tr id="+p.getNusuario()+" class=info >");
                 out.println("<p> Nombre: "+p.getNombre()+"</p>");
                 out.println("<p> Email: "+p.getEmail()+"</p>");
-                out.println("<form action='InfoProfesor' method='get'>");
+                out.println("<form action='InfoProfesor' method='post'>");
                 out.println("<input type='text' class=users name=user value="+p.getNusuario()+"></p>");
                 out.println("<input type='submit' value='Ver informacion'>");
                 out.println("</form>");
@@ -118,20 +118,34 @@ public class VerProfesores extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head><title>Post Method</title></head>");
-        out.println("<body>");
-        out.println("<h1>¡Post!</h1>");
-        out.println(" Nombre: <br>");
-        out.println(" Password: <br>");
-        //String nombre = request.getHeader("Name");
-        //out.println("Tu nombre es: " + nombre);
-        
-        out.println("</body></html>");
-        out.close();
-    }
+        VerProfesor v = new VerProfesor();
+        LinkedList <Profesor>l = v.listaProf();
+        Iterator i = l.iterator();
+        PrintWriter out = response.getWriter();            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
+            out.println("<head>");
+            out.println("<title>Profesores</title>");
+  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<table  cellpadding='15' border='0'> ");
+                     
+            while(i.hasNext()){
+                Profesor p = (Profesor)i.next();
+                out.println("<tr id="+p.getNusuario()+" class=info >");
+                out.println("<p> Nombre: "+p.getNombre()+"</p>");
+                out.println("<p> Email: "+p.getEmail()+"</p>");
+                out.println("<form action='InfoProfesor' method='post'>");
+                out.println("<input type='text' class=users name=user value="+p.getNusuario()+"></p>");
+                out.println("<input type='submit' value='Ver informacion'>");
+                out.println("</form>");
+                out.println("</tr>");
+            }
+
+            out.println("</table></body></html>");
+        out.close();    }
 
     /**
      * Returns a short description of the servlet.

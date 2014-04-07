@@ -129,18 +129,43 @@ public class InfoProfesor extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String usr = request.getParameter("user");
+        VerProfesor v = new VerProfesor();
+        Profesor p = v.informacionProf(usr);
         PrintWriter out = response.getWriter();
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head><title>Post Method</title></head>");
-        out.println("<body>");
-        out.println("<h1>¡Post!</h1>");
-        out.println(" Nombre: <br>");
-        out.println(" Password: <br>");
-        //String nombre = request.getHeader("Name");
-        //out.println("Tu nombre es: " + nombre);
-        
-        out.println("</body></html>");
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>"+p.getNombre()+"</title>");
+  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<p> Nombre: " + p.getNombre()+"</p>");
+            out.println("<p> Telefono: " + p.getTelefono()+"</p>");
+            out.println("<p> Direccion: " + p.getDir()+"</p>");
+            out.println("<p> Email: " + p.getEmail()+"</p>");
+            out.println("<p> Certificados:</p><br><ul>");
+            LinkedList<String> cert = p.getCertificados();
+            Iterator i = cert.iterator();
+            while(i.hasNext()){
+                String c = (String) i.next();
+                out.println("<li>"+ c +"</li>");
+            }
+            out.println("</ul><p> Cursos que imparte:</p><br><ul>");            
+            cert = p.getCursos();
+            i = cert.iterator();
+            while(i.hasNext()){
+                String c = (String) i.next();
+                out.println("<li>"+ c +"</li>");
+            }
+            out.println("</ul><p> Videos:</p><br><ul>");            
+            cert = p.getVideos();
+            i = cert.iterator();
+            while(i.hasNext()){
+                String c = (String) i.next();
+                out.println("<li href="+ c +">"+ c +"</li>");
+            }
+            out.println("</ul></body></html>");
         out.close();
     }
 
