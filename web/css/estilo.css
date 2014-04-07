@@ -1,0 +1,127 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 31, 2014, 1:51:47 PM
+    Author     : arturo
+*/
+
+
+
+#TEE_Logo{
+    width: 135px; 
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    margin:0px 0px 0px 0px auto;
+}
+
+#superior{
+    position: absolute;
+    margin: 0%;
+    top: 0%;
+    left: 0%;    
+    width: 100%;
+    height: 180px;
+    background-color: midnightblue;
+    z-index:1;
+}
+#superior1{
+    position: absolute;
+    margin: 0%;
+    top: 0%;
+    left: 0%;    
+    width: 100%;
+    height: 100%;
+}
+#superior2{
+    position: absolute;
+    margin: 0%;
+    top: 20%;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    text-align:right;
+}
+#titulo{
+    position: absolute;    
+    color: white; 
+    bottom: 35%;
+    font-size: 3em;
+    font-family: book antiqua;
+}
+
+#izq{
+    z-index:0;
+    position: absolute;
+    margin: 0% 0% 0% -0.55%;
+    top: 0%;
+    left: 0%;
+    width: 150px;
+    height: 100%;
+    background-color: red;    
+}
+#text-izq{
+    position: absolute;
+    margin: 0%;
+    top: 230px; 
+    width: 90%;
+    height: 60%;
+    margin-left: 10%;  
+}
+
+#registrarProfesor{
+    position: relative;
+    float:right;
+    top:50%;
+    right: 2%;    
+}
+#raya{
+    position: relative;
+    color: white;
+    float:left;
+    float:right;
+    top:50%;
+    right: 2%;
+}
+#registrarAlumno{
+    position: relative;
+    float:right;
+    top:50%;
+    right: 2%;    
+}
+#iniciarSesion{
+    position: relative;
+    top:40%;
+    right: 2%;    
+}
+
+.casos:hover{
+    font-weight: bold;
+    border: 3px solid white;
+    border-radius: 5px;
+    
+}
+
+.casos{
+    position: relative;
+    font-size: 100%;
+    font-family: book antiqua; 
+}
+
+.inicial{
+    position: absolute;
+    color: white;
+    text-decoration: none;
+}
+
+.inicial:visited{
+    text-decoration: none;
+    color: #dddddd;
+}
+
+.inicial:hover{
+    text-decoration: underline;
+}

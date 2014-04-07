@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registrar Profesor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/CrearProfesor.css" />        
+        <SCRIPT LANGUAGE="JavaScript">
+            
+</SCRIPT>
+    </head>
+    <body>
+        <div id= "superior"> 
+            <img id= "TEE_Logo" src="imagenes/LogoEnglish.jpg">
+            <a id= "titulo"> The English England</a>
+            <a id="registrarProfesor" class="inicial" href="EditarProfesor.html">Editar Profesor</a>
+            <a id="raya">|</a>
+            <a id="registrarAlumno" class="inicial">Registrar Alumno</a>
+            <a id="iniciarSesion" class="inicial"> Iniciar sesi&oacuten</a>
+        </div>
+        
+        <div id="izq">
+            <a id="verCursos" class="casos"> Ver Cursos</a>
+            <br>
+            <a id="verNiveles" class="casos"> Ver Niveles</a>
+            <br>
+            <a id="inscribirCurso" class="casos"> Inscribir Curso</a>
+            <br>
+            <a id="verificarProfesor" class="casos"> Verificar Profesor</a>
+        </div>
+        
+        <div id="cuerpo">
+            <form name="inputPost" action="CrearProfesor" method="post" id="formProf">
+            Usuario: <input type="text" name="usuario" class="campo" id="user">
+            Password: <input type="password" name="password" class="campo" id="pw"><br>
+            Nombre: <input type="text" name="nombre" class="campo" id="name">
+            Dirección: <input type="text" name="direccion" class="campo" id="address"><br>
+            Teléfono: <input type="text" name="telefono" class="campo" id="phone">
+            Correo: <input type="text" name="correo" class="campo" id="mail"><br>
+            Vídeo: <input type="file" name="video" class="boton" >
+            Certificado: <input type="file" name="Certificado" class="boton"><br>
+            <input type="submit" value="Subir Perfil" class="boton" id="subir" >
+        </form>
+        </div>
+        
+    </body>
+</html>
+
