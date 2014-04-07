@@ -4,17 +4,25 @@
         <servlet-name>CrearProfesor</servlet-name>
         <servlet-class>Controlador.CrearProfesor</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>UploadFileServlet</servlet-name>
-        <servlet-class>Servlets.UploadFileServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>CrearProfesor</servlet-name>
         <url-pattern>/CrearProfesor</url-pattern>
     </servlet-mapping>
+    <servlet-name>VerProfesores</servlet-name>
+        <servlet-class>Servlets.VerProfesores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InfoProfesor</servlet-name>
+        <servlet-class>Servlets.InfoProfesor</servlet-class>
+    </servlet>
+
     <servlet-mapping>
-        <servlet-name>UploadFileServlet</servlet-name>
-        <url-pattern>/UploadFileServlet</url-pattern>
+        <servlet-name>VerProfesores</servlet-name>
+        <url-pattern>/VerProfesores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InfoProfesor</servlet-name>
+        <url-pattern>/InfoProfesor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
