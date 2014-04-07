@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package source;
+package Model;
 import java.sql.*;
 import java.util.Scanner;
 /**
@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author d01000100
  */
 public class ConexionBD{
-  
+ 
     private String driver;
     private String cadenaCon;
     private String userName;
@@ -23,7 +23,7 @@ public class ConexionBD{
   */
   public ConexionBD() {
         driver ="com.mysql.jdbc.Driver";
-        cadenaCon = "jdbc:mysql://localhost:3306/TEE";
+        cadenaCon = "jdbc:mysql://localhost:3306/EnglishEngalnd";
         userName = "root";
         password = "";
     }
@@ -40,21 +40,15 @@ public class ConexionBD{
         }
     }
   
-   public void desconectar( Connection cn ) {
-        try {
-              if( cn != null && ! cn.isClosed() ) {
-                  cn.close();
-               }
-            }
-         catch( SQLException e ) {
+    public void desconectar( Connection cn ) {
+	try{
+	    if( cn != null && ! cn.isClosed() ) {
+		cn.close();
+	    }
+	}catch( SQLException e ) {
             e.printStackTrace();
-         }
+	}
     }
-  
-   public String cosa(){
-    return   "joder";
-   
-   }
   public static void main(String[] pps)
   {
       try

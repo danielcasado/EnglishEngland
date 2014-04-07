@@ -6,9 +6,12 @@
 
 package Servlets;
 
+import Model.Profesor;
+import Model.VerProfesor;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.LinkedList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author tsubasa
  */
-public class VerProfesores extends HttpServlet {
+public class InfoProfesor extends HttpServlet{
 
     
     /**
@@ -36,14 +39,24 @@ public class VerProfesores extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
+            VerProfesor v = new VerProfesor();
+            LinkedList <Profesor>l = v.listaProf();
+            Iterator i = l.iterator();
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HolaMundoServlet</title>");            
+            out.println("<title>Profesores</title>");
+  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HolaMundoServlet at " + request.getContextPath() + "</h1>");
+            out.println("<table  cellpadding='15' border='0'> ");
+            while(i.hasNext()){
+                Profesor p = (Profesor)i.next();
+                out.println("<tr id="+p.getNusuario()+" class=info >");
+                out.println("<p class=nombres >"+p.getNombre()+"</p>");
+                out.println("<p id=user >"+p.getNusuario()+"</p>");
+                out.println("</tr>");                
+            }
             out.println("</body>");
             out.println("</html>");
         } finally {            
@@ -64,19 +77,43 @@ public class VerProfesores extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String usr = request.getParameter("user");
+        VerProfesor v = new VerProfesor();
+        Profesor p = v.informacionProf(usr);
         PrintWriter out = response.getWriter();
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head><title>Get Method</title></head>");
-        out.println("<body>");
-        out.println("<h1>¡Get!</h1>");
-        out.println(" Nombre:  <br>");
-        out.println(" Password: <br>");
-        //String nombre = request.getHeader("Name");
-        //out.println("Tu nombre es: " + nombre);
-            String tmp;
-        
-        out.println("</body></html>");
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>"+p.getNombre()+"</title>");
+  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<p> Nombre: " + p.getNombre()+"</p>");
+            out.println("<p> Telefono: " + p.getTelefono()+"</p>");
+            out.println("<p> Direccion: " + p.getDir()+"</p>");
+            out.println("<p> Email: " + p.getEmail()+"</p>");
+            out.println("<p> Certificados:</p><br><ul>");
+            LinkedList<String> cert = p.getCertificados();
+            Iterator i = cert.iterator();
+            while(i.hasNext()){
+                String c = (String) i.next();
+                out.println("<li>"+ c +"</li>");
+            }
+            out.println("</ul><p> Cursos que imparte:</p><br><ul>");            
+            cert = p.getCursos();
+            i = cert.iterator();
+            while(i.hasNext()){
+                String c = (String) i.next();
+                out.println("<li>"+ c +"</li>");
+            }
+            out.println("</ul><p> Videos:</p><br><ul>");            
+            cert = p.getVideos();
+            i = cert.iterator();
+            while(i.hasNext()){
+                String c = (String) i.next();
+                out.println("<li href="+ c +">"+ c +"</li>");
+            }
+            out.println("</ul></body></html>");
         out.close();
     }
 
@@ -92,7 +129,7 @@ public class VerProfesores extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head><title>Post Method</title></head>");
@@ -115,5 +152,5 @@ PrintWriter out = response.getWriter();
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }// </editor-fold>    
 }

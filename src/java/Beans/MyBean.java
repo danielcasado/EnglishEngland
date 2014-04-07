@@ -12,6 +12,7 @@ public class MyBean {
     String nombre;
     String password;
     boolean conectado;
+    String tipo;
     
     public String getNombre() {
         return nombre;
@@ -35,5 +36,13 @@ public class MyBean {
     
     public boolean getConectado(){
         return conectado;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    public String getTipo(){
+        return tipo;
     }
 }

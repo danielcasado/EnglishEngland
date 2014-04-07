@@ -12,9 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World dadsds</h1>
         <form action="VerProfesores" method="get" id="myFormPost">
-            <input type="submit" value="Enviar Formulario">            
+            <input type="submit" value="Enviar Formulario">
         </form>
     
     </body>

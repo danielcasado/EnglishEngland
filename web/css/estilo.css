@@ -3,117 +3,135 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
-    Created on : Mar 31, 2014, 1:51:47 PM
-    Author     : arturo
+/*
+   Created on : Mar 31, 2014, 1:51:47 PM
+   Author     : arturo
 */
 
 
 #TEE_Logo{
-    width: 9%; 
-    height: 100%;
-    top: 0%;
-    left: 0%;
+   width: 135px;
+   height: 100%;
+   top: 0%;
+   left: 0%;
+   margin:0px 0px 0px 0px auto;
 }
 
 #superior{
-    position: absolute;
-    margin: -0.55%;
-    width: 100%;
-    height: 21.75%;
-    background-color: midnightblue;
-
-    
+   position: absolute;
+   margin: 0%;
+   top: 0%;
+   left: 0%;    
+   width: 100%;
+   height: 150px;
+   background-color: midnightblue;
+   z-index:1;
 }
-
+#superior1{
+   position: relative;
+   margin: 0%;
+   top: 0%;
+   left: 0%;    
+   width: 100%;
+   height: 100%;
+}
+#superior2{
+   position: absolute;
+   margin: 0%;
+   top: 0%;
+   left: 50%;
+   width: 50%;
+   height: 100%;
+   text-align:right;
+}
 #titulo{
-    position: absolute;    
-    color: white; 
-    bottom: 35%;
-    font-size: 3em;
-    font-family: book antiqua;
+   position: absolute;    
+   color: white;
+   bottom: 35%;
+   font-size: 3em;
+   font-family: book antiqua;
 }
 
 #izq{
-    position: absolute;
-    margin: 11.6% 0% 0% -0.55%;
-    width: 11%;
-    height: 100%;
-    background-color: red;    
+   z-index:0;
+   position: absolute;
+   top: 140px;
+   left: 0px;
+   width: 20%;
+   height:80%;
+   float:left;   
+   background-color: red;    
 }
-
-#verCursos{
-    position: absolute;
-    margin-top: 70%;
+#text-izq{
+   position: relative;
+   width: 90%;
+   height:100%;
+   margin-left: 10%;  
 }
-
-
-#verNiveles{
-    position: absolute;
-    margin-top: 120%;
-}
-
-
-#inscribirCurso{
-    position: absolute;
-    margin-top: 170%;
-}
-
-
-#verificarProfesor{
-    position: absolute;
-    margin-top: 220%;
+#der{
+   position: absolute;
+   width: 80%;
+   left:20%;
+   height:80%;
+   top: 140px;
+   background-color: #dddddd;   
 }
 
 #registrarProfesor{
-    bottom: 5%;
-    right: 1%;
+   position: relative;
+   float:right;
+   top:50%;
+   right: 2%;    
 }
-
 #raya{
-    position: absolute;
-    bottom: 5%;
-    right: 10%;
-    color: white;
+   position: relative;
+   color: white;
+   float:left;
+   float:right;
+   top:50%;
+   right: 2%;
 }
-
 #registrarAlumno{
-    bottom: 5%;
-    right: 11%;
+   position: relative;
+   float:right;
+   top:50%;
+   right: 2%;    
 }
-
 #iniciarSesion{
-    bottom: 20%;
-    right: 1%;
+   position: relative;
+   top:40%;
+   right: 2%;    
 }
-
-
 
 .casos:hover{
-    font-weight: bold;
-    border: 3px solid white;
-    border-radius: 5px;
-    
+   font-weight: bold;
+   border: 3px solid white;
+   border-radius: 5px;
+   
 }
 
 .casos{
-    position: absolute;
-    font-size: 1em;
-    font-family: book antiqua; 
-    margin-left: 10%;
+   position: relative;
+   font-size: 100%;
+   font-family: book antiqua;
 }
 
 .inicial{
-    position: absolute;
-    color: white;
-    text-decoration: none;
+   position: absolute;
+   color: white;
+   text-decoration: none;
 }
 
 .inicial:visited{
-    text-decoration: none;
-    color: #dddddd;
+   text-decoration: none;
+   color: #dddddd;
 }
 
 .inicial:hover{
-    text-decoration: underline;
+   text-decoration: underline;
+}
+
+.users{
+    display:none;    
+    visibility:hidden; 
 }
