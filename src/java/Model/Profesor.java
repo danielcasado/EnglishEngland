@@ -17,7 +17,8 @@ public class Profesor {
     private String telefono;
     private String dir;
     private String email;
-    private String nusuario;    
+    private String nusuario;
+    private boolean verificado;
     private LinkedList <String> cursos;
     private LinkedList <String> certificados;
     private LinkedList <String> videos;
@@ -67,9 +68,18 @@ public class Profesor {
         certificados.add(certificado);
     }
     
+    public void setVerificado(boolean verificado){
+        this.verificado = verificado;
+    }
+    
+    public boolean getVerificado(){
+        return verificado;
+    }
+    
     public LinkedList<String> getCertificados(){
         return certificados;
     }
+    
     public void agregaVideo(String video) {
         videos.add(video);
     }

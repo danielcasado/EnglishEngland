@@ -23,7 +23,7 @@ public class ConexionBD{
   */
   public ConexionBD() {
         driver ="com.mysql.jdbc.Driver";
-        cadenaCon = "jdbc:mysql://localhost:3306/EnglishEngalnd";
+        cadenaCon = "jdbc:mysql://localhost:3306/TEE";
         userName = "root";
         password = "";
     }
