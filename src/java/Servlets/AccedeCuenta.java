@@ -6,8 +6,7 @@
 
 package Servlets;
 
-import Model.Profesor;
-import Model.VerProfesor;
+import Model.ValidaUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author tsubasa
  */
-public class InfoProfesor extends HttpServlet{
+public class AccedeCuenta extends HttpServlet{
 
     String inicio = "<div id= \"superior\">\n" +
 "   <div id= \"superior1\">\n" +
@@ -64,7 +63,6 @@ public class InfoProfesor extends HttpServlet{
 "          </div>\n" +
 "       </div>\n" +
 "            <div id=\"der\">";
-
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -78,31 +76,7 @@ public class InfoProfesor extends HttpServlet{
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            VerProfesor v = new VerProfesor();
-            LinkedList <Profesor>l = v.listaProf();
-            Iterator i = l.iterator();
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Profesores</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<table  cellpadding='15' border='0'> ");
-            while(i.hasNext()){
-                Profesor p = (Profesor)i.next();
-                out.println("<tr id="+p.getNusuario()+" class=info >");
-                out.println("<p class=nombres >"+p.getNombre()+"</p>");
-                out.println("<p id=user >"+p.getNusuario()+"</p>");
-                out.println("</tr>");                
-            }
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -119,44 +93,44 @@ public class InfoProfesor extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String usr = request.getParameter("user");
-        VerProfesor v = new VerProfesor();
-        Profesor p = v.informacionProf(usr);
+        String con = request.getParameter("contra");
+        ValidaUsuario v= new ValidaUsuario();
+        String tipo = v.validar(usr, con);
         PrintWriter out = response.getWriter();
+        if(tipo.equals("err")){
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>"+p.getNombre()+"</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
+            out.println("<title>Error</title>");  
             out.println("</head>");
             out.println("<body>");
             out.println(inicio);
-            out.println("<p> Nombre: " + p.getNombre()+"</p>");
-            out.println("<p> Telefono: " + p.getTelefono()+"</p>");
-            out.println("<p> Direccion: " + p.getDir()+"</p>");
-            out.println("<p> Email: " + p.getEmail()+"</p>");
-            out.println("<p> Certificados:</p><br><ul>");
-            LinkedList<String> cert = p.getCertificados();
-            Iterator i = cert.iterator();
-            while(i.hasNext()){
-                String c = (String) i.next();
-                out.println("<li>"+ c +"</li>");
-            }
-            out.println("</ul><p> Cursos que imparte:</p><br><ul>");            
-            cert = p.getCursos();
-            i = cert.iterator();
-            while(i.hasNext()){
-                String c = (String) i.next();
-                out.println("<li>"+ c +"</li>");
-            }
-            out.println("</ul><p> Videos:</p><br><ul>");            
-            cert = p.getVideos();
-            i = cert.iterator();
-            while(i.hasNext()){
-                String c = (String) i.next();
-                out.println("<li href="+ c +">"+ c +"</li>");
-            }
-            out.println("</ul></div></body></html>");
+            out.println("<br><br><br><p class='error'>Contraseña incorrecta</p>");            
+            out.println("</der></body></html>");
         out.close();
+        }
+        else if(tipo.equals("none")){
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Error</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println(inicio);
+            out.println("<br><br><br><p class='error'>Usuario incorrecto</p>");
+            out.println("</div></body></html>");
+        out.close();
+        }else{
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Error</title>");  
+            out.println("</head>");
+            out.println("<body>eres un "+tipo);
+            out.println("</body></html>");
+        out.close();            
+            
+        }
     }
 
     /**
@@ -172,44 +146,54 @@ public class InfoProfesor extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String usr = request.getParameter("user");
-        VerProfesor v = new VerProfesor();
-        Profesor p = v.informacionProf(usr);
+        String con = request.getParameter("contra");
+        ValidaUsuario v= new ValidaUsuario();
+        String tipo = v.validar(usr, con);
         PrintWriter out = response.getWriter();
+        if(tipo.equals("err")){
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>"+p.getNombre()+"</title>");  
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
+            out.println("<title>Error</title>");  
+            out.println("</head>");
+            out.println("<link rel='stylesheet' type='text/css' href='css/estilo.css' />");
+            out.println("<body>");
+            out.println(inicio);
+            out.println("<br><br><br><p class='error'>Contraseña incorrecta</p>");
+            out.println("<input type='button' value='Reintentar' onClick=\" window.location.href='Acceder.jsp' \">");
+            out.println("</div></body></html>");
+        out.close();
+        }
+        else if(tipo.equals("none")){
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Error</title>");
+            out.println("<link rel='stylesheet' type='text/css' href='css/estilo.css' />");
             out.println("</head>");
             out.println("<body>");
-            out.println(inicio);        
-            out.println("<p> Nombre: " + p.getNombre()+"</p>");
-            out.println("<p> Telefono: " + p.getTelefono()+"</p>");
-            out.println("<p> Direccion: " + p.getDir()+"</p>");
-            out.println("<p> Email: " + p.getEmail()+"</p>");
-            out.println("<p> Certificados:</p><br><ul>");
-            LinkedList<String> cert = p.getCertificados();
-            Iterator i = cert.iterator();
-            while(i.hasNext()){
-                String c = (String) i.next();
-                out.println("<li>"+ c +"</li>");
-            }
-            out.println("</ul><p> Cursos que imparte:</p><br><ul>");            
-            cert = p.getCursos();
-            i = cert.iterator();
-            while(i.hasNext()){
-                String c = (String) i.next();
-                out.println("<li>"+ c +"</li>");
-            }
-            out.println("</ul><p> Videos:</p><br><ul>");            
-            cert = p.getVideos();
-            i = cert.iterator();
-            while(i.hasNext()){
-                String c = (String) i.next();
-                out.println("<li href="+ c +">"+ c +"</li>");
-            }
-            out.println("</ul></div></body></html>");
+            out.println(inicio);
+            out.println("<br><br><br><p class='error'>Usuario incorrecto</p>");
+            out.println("<input type='button' value='Reintentar' onClick=\" window.location.href='Acceder.jsp' \">");
+            out.println("</div></body></html>");
         out.close();
+        }else{
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Bienvenido</title>");
+            out.println("<link rel='stylesheet' type='text/css' href='css/estilo.css' />");
+            
+            out.println("<script type='text/javascript' src='js/valida.js'></script>");
+            out.println("</head>");
+            out.println("<body onload='alta(\""+usr+"\",\""+con+"\",\""+tipo+"\")'>");
+            out.println(inicio);            
+            out.println("<p>Has ingresado con el usuario "+usr +" de tipo "+tipo+"</p>");
+            out.println("<input type='button' value='Home' onClick=\" window.location.href='index.html' \">");
+            out.println("</div></body></html>");
+        out.close();            
+            
+        }
     }
 
     /**
@@ -222,3 +206,4 @@ public class InfoProfesor extends HttpServlet{
         return "Short description";
     }// </editor-fold>    
 }
+

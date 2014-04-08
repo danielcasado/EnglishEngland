@@ -23,6 +23,47 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class VerProfesores extends HttpServlet {
 
+    String inicio = "<div id= \"superior\">\n" +
+"   <div id= \"superior1\">\n" +
+"<img id= \"TEE_Logo\" src=\"imagenes/LogoEnglish.jpg\">            \n" +
+"<a id= \"titulo\"> The English England</a>\n" +
+"           </div>\n" +
+"           <div id= \"superior2\">\n" +
+"<a id=\"iniciarSesion\" class=\"inicial\" href=\"Acceder.jsp\"> Iniciar sesi&oacuten</a>\n" +
+"<br>\n" +
+"<a id=\"registrarProfesor\" class=\"inicial\" href=\"CrearProfesor.html\">Registrar Profesor</a>\n" +
+"<div  id=\"raya\"><a>|</a></div>\n" +
+"<a id=\"registrarAlumno\" class=\"inicial\">Registrar Alumno</a>\n" +
+"   </div>\n" +
+"       </div> \n" +
+"        <div id=\"izq\">\n" +
+"          <div id=\"text-izq\">\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <a id=\"verCursos\" class=\"casos\"> Ver Cursos</a>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <a id=\"verNiveles\" class=\"casos\"> Ver Niveles</a>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <a id=\"verProfesores\" class=\"casos\" href=\"VerProfesores\"> Ver Profesores</a>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <a id=\"inscribirCurso\" class=\"casos\"> Inscribir Curso</a>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <a id=\"verificarProfesor\" class=\"casos\"> Verificar  Profesor</a>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"             <br>\n" +
+"          </div>\n" +
+"       </div>\n" +
+"            <div id=\"der\">";
     
     /**
      * Processes requests for both HTTP
@@ -88,8 +129,8 @@ public class VerProfesores extends HttpServlet {
   
             out.println("</head>");
             out.println("<body>");
-            out.println("<table  cellpadding='15' border='0'> ");
-                     
+            out.println(inicio);            
+            out.println("<table  cellpadding='15' border='0'> ");                 
             while(i.hasNext()){
                 Profesor p = (Profesor)i.next();
                 out.println("<tr id="+p.getNusuario()+" class=info >");
@@ -102,7 +143,7 @@ public class VerProfesores extends HttpServlet {
                 out.println("</tr>");
             }
 
-            out.println("</table></body></html>");
+            out.println("</table></div></body></html>");
         out.close();
     }
 
@@ -127,9 +168,9 @@ public class VerProfesores extends HttpServlet {
             out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
             out.println("<head>");
             out.println("<title>Profesores</title>");
-  
             out.println("</head>");
             out.println("<body>");
+            out.println(inicio);
             out.println("<table  cellpadding='15' border='0'> ");
                      
             while(i.hasNext()){
@@ -144,7 +185,7 @@ public class VerProfesores extends HttpServlet {
                 out.println("</tr>");
             }
 
-            out.println("</table></body></html>");
+            out.println("</table></div></body></html>");
         out.close();    }
 
     /**

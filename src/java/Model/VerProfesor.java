@@ -68,7 +68,7 @@ public class VerProfesor {
             Connection conex = con.conectar();
             Statement stmt = conex.createStatement();
             ResultSet rs = stmt.executeQuery("select * from profesor where nUsuario='"+ usr +"';");
-            while(rs.next()){
+            rs.next();
                 p.setNombre(rs.getString("nombre"));
                 p.setEmail(rs.getString("correo"));
                 p.setDir(rs.getString("direccion"));
@@ -89,8 +89,7 @@ public class VerProfesor {
                         + " where v.nUsuario='" + usr + "';");
                 while(rs3.next()){
                     p.agregaVideo(rs2.getString("video"));
-                }
-            }
+                }       
             con.desconectar(conex);
         }catch(Exception e){
             e.printStackTrace();

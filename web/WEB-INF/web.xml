@@ -8,7 +8,10 @@
         <servlet-name>InfoProfesor</servlet-name>
         <servlet-class>Servlets.InfoProfesor</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>AccedeCuenta</servlet-name>
+        <servlet-class>Servlets.AccedeCuenta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerProfesores</servlet-name>
         <url-pattern>/VerProfesores</url-pattern>
@@ -16,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>InfoProfesor</servlet-name>
         <url-pattern>/InfoProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccedeCuenta</servlet-name>
+        <url-pattern>/AccedeCuenta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
