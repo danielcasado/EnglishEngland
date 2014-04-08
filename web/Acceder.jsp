@@ -54,11 +54,13 @@
           </div>
        </div>
             <div id="der">
+              <div id="der-cont">
                 <form name="input" action="AccedeCuenta" method="post" id="myFormGet">
                     Usuario: <input type="text" name="user"><br>
                     Contraseña: <input type="password" name="contra"><br>
                     <input type="submit" value="Ingresar">
                 </form>                
           </div>
+        </div>
     </body>
 </html>

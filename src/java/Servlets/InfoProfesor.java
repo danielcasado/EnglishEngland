@@ -130,6 +130,7 @@ public class InfoProfesor extends HttpServlet{
             out.println("</head>");
             out.println("<body>");
             out.println(inicio);
+            out.println("<div id='der-cont'>");            
             out.println("<p> Nombre: " + p.getNombre()+"</p>");
             out.println("<p> Telefono: " + p.getTelefono()+"</p>");
             out.println("<p> Direccion: " + p.getDir()+"</p>");
@@ -155,7 +156,7 @@ public class InfoProfesor extends HttpServlet{
                 String c = (String) i.next();
                 out.println("<li href="+ c +">"+ c +"</li>");
             }
-            out.println("</ul></div></body></html>");
+            out.println("</ul></div></div></body></html>");
         out.close();
     }
 
@@ -182,7 +183,8 @@ public class InfoProfesor extends HttpServlet{
             out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
             out.println("</head>");
             out.println("<body>");
-            out.println(inicio);        
+            out.println(inicio);
+            out.println("<div id='der-cont'>");            
             out.println("<p> Nombre: " + p.getNombre()+"</p>");
             out.println("<p> Telefono: " + p.getTelefono()+"</p>");
             out.println("<p> Direccion: " + p.getDir()+"</p>");
@@ -208,7 +210,7 @@ public class InfoProfesor extends HttpServlet{
                 String c = (String) i.next();
                 out.println("<li href="+ c +">"+ c +"</li>");
             }
-            out.println("</ul></div></body></html>");
+            out.println("</ul></div></div></body></html>");
         out.close();
     }
 

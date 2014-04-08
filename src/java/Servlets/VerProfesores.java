@@ -129,7 +129,8 @@ public class VerProfesores extends HttpServlet {
   
             out.println("</head>");
             out.println("<body>");
-            out.println(inicio);            
+            out.println(inicio);
+            out.println("<div id='der-cont'>");
             out.println("<table  cellpadding='15' border='0'> ");                 
             while(i.hasNext()){
                 Profesor p = (Profesor)i.next();
@@ -143,7 +144,7 @@ public class VerProfesores extends HttpServlet {
                 out.println("</tr>");
             }
 
-            out.println("</table></div></body></html>");
+            out.println("</table></div></div></body></html>");
         out.close();
     }
 
@@ -171,6 +172,7 @@ public class VerProfesores extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println(inicio);
+            out.println("<div id='der-cont'>");
             out.println("<table  cellpadding='15' border='0'> ");
                      
             while(i.hasNext()){
@@ -185,7 +187,7 @@ public class VerProfesores extends HttpServlet {
                 out.println("</tr>");
             }
 
-            out.println("</table></div></body></html>");
+            out.println("</table></div></div></body></html>");
         out.close();    }
 
     /**

@@ -159,9 +159,10 @@ public class AccedeCuenta extends HttpServlet{
             out.println("<link rel='stylesheet' type='text/css' href='css/estilo.css' />");
             out.println("<body>");
             out.println(inicio);
+            out.println("<div id='der-cont'>");
             out.println("<br><br><br><p class='error'>Contraseña incorrecta</p>");
             out.println("<input type='button' value='Reintentar' onClick=\" window.location.href='Acceder.jsp' \">");
-            out.println("</div></body></html>");
+            out.println("</div></div></body></html>");
         out.close();
         }
         else if(tipo.equals("none")){
@@ -173,9 +174,10 @@ public class AccedeCuenta extends HttpServlet{
             out.println("</head>");
             out.println("<body>");
             out.println(inicio);
+            out.println("<div id='der-cont'>");            
             out.println("<br><br><br><p class='error'>Usuario incorrecto</p>");
             out.println("<input type='button' value='Reintentar' onClick=\" window.location.href='Acceder.jsp' \">");
-            out.println("</div></body></html>");
+            out.println("</div></div></body></html>");
         out.close();
         }else{
             out.println("<!DOCTYPE html>");
@@ -183,14 +185,14 @@ public class AccedeCuenta extends HttpServlet{
             out.println("<head>");
             out.println("<title>Bienvenido</title>");
             out.println("<link rel='stylesheet' type='text/css' href='css/estilo.css' />");
-            
             out.println("<script type='text/javascript' src='js/valida.js'></script>");
             out.println("</head>");
             out.println("<body onload='alta(\""+usr+"\",\""+con+"\",\""+tipo+"\")'>");
-            out.println(inicio);            
+            out.println(inicio);
+            out.println("<div id='der-cont'>");
             out.println("<p>Has ingresado con el usuario "+usr +" de tipo "+tipo+"</p>");
             out.println("<input type='button' value='Home' onClick=\" window.location.href='index.html' \">");
-            out.println("</div></body></html>");
+            out.println("</div></div></body></html>");
         out.close();            
             
         }
