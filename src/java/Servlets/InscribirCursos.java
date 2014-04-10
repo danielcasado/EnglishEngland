@@ -6,8 +6,9 @@
 
 package Servlets;
 
-import Model.Profesor;
-import Model.VerProfesor;
+
+import Model.Curso;
+import Model.InscribirCurso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
@@ -19,10 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author tsubasa
+ * @author arturo
  */
-public class VerProfesores extends HttpServlet {
-
+public class InscribirCursos extends HttpServlet{
+    
+    
     String inicio = "<div id= \"superior\">\n" +
 "   <div id= \"superior1\">\n" +
 "<img id= \"TEE_Logo\" src=\"imagenes/LogoEnglish.jpg\">            \n" +
@@ -64,7 +66,6 @@ public class VerProfesores extends HttpServlet {
 "          </div>\n" +
 "       </div>\n" +
 "            <div id=\"der\">";
-    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -80,32 +81,56 @@ public class VerProfesores extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-        VerProfesor v = new VerProfesor();
-        LinkedList <Profesor>l = v.listaProf();
-        Iterator i = l.iterator();        
+            InscribirCurso iC = new InscribirCurso();
+            LinkedList <Curso>l = iC.listaCurso();
+            Iterator i = l.iterator();
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
             out.println("<head>");
-            out.println("<title>Profesores</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
+            out.println("<title>Inscribir</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println(inicio);
+            out.println(inicio);            
             out.println("<div id='der-cont'>");
-            out.println("<table  cellpadding='15' border='0'> ");
-                     
+            out.println("<table  cellpadding='12'> ");
+            out.println("<tr class=info >");
+            out.println("<td class=info >Nivel");
+            out.println("</td>");
+            out.println("<td class=info >Profesor");
+            out.println("</td>");   
+            out.println("<td class=info >ID");
+            out.println("</td>"); 
+            out.println("<td class=info >Hora Inicio");
+            out.println("</td>");
+            out.println("<td class=info >Hora Final");
+            out.println("</td>");
+            out.println("<td class=info >Fecha Inicio");
+            out.println("</td>");
+            out.println("<td class=info >Fecha Final");
+            out.println("</td>");
+            out.println("<td class=info >");
+            out.println("</td>");
+            out.println("</tr>");
             while(i.hasNext()){
-                Profesor p = (Profesor)i.next();
+                Curso c = (Curso)i.next();
+                String id = c.getCurso_id();
                 out.println("<tr class=info >");
-                out.println("<p> Nombre: "+p.getNombre()+"</p>");
-                out.println("<p> Email: "+p.getEmail()+"</p>");
-                out.println("<form action='InfoProfesor' method='post'>");
-                out.println("<input type='text' class=users name=user value="+p.getNusuario()+"></p>");
-                out.println("<input type='submit' value='Ver informacion'>");
-                out.println("</form>");
+                out.println("<td>"+c.getNivel()+"</td>");
+                out.println("<td>"+c.getProfesor()+"</td>");
+                out.println("<td>"+c.getCurso_id()+"</td>");                
+                out.println("<td>"+c.getHora_Inicio()+"</td>");
+                out.println("<td>"+c.getHora_Final()+"</td>");
+                out.println("<td>"+c.getFecha_Inicio()+"</td>");
+                out.println("<td>"+c.getFecha_Final()+"</td>");
+                out.println("</tr>");
+                out.println("<tr>");
+                out.println("<td><form action='Inscrito' method='post'>");
+                out.println("<input type='text' class=users name=id value="+id+"></p>");
+                out.println("<input type='submit' value='Inscribir'>");
+                out.println("</form></td>");                
                 out.println("</tr>");
             }
-
             out.println("</table></div></div></body></html>");
         } finally {            
             out.close();

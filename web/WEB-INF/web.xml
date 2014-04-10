@@ -9,6 +9,10 @@
         <servlet-class>Servlets.InfoProfesor</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Inscrito</servlet-name>
+        <servlet-class>Servlets.Inscrito</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AccedeCuenta</servlet-name>
         <servlet-class>Servlets.AccedeCuenta</servlet-class>
     </servlet>
@@ -24,13 +28,33 @@
         <servlet-name>AceptarProfesor</servlet-name>
         <servlet-class>Servlets.AceptarProfesor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InscribirCursos</servlet-name>
+        <servlet-class>Servlets.InscribirCursos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerCursos</servlet-name>
+        <servlet-class>Servlets.VerCursos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerNivel</servlet-name>
+        <servlet-class>Servlets.VerNivel</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerProfesores</servlet-name>
         <url-pattern>/VerProfesores</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Inscrito</servlet-name>
+        <url-pattern>/Inscrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>VerificarProfesores</servlet-name>
         <url-pattern>/VerificarProfesores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InscribirCursos</servlet-name>
+        <url-pattern>/InscribirCursos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InfoProfesor</servlet-name>
@@ -47,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>AceptarProfesor</servlet-name>
         <url-pattern>/AceptarProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerCursos</servlet-name>
+        <url-pattern>/VerCursos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerNivel</servlet-name>
+        <url-pattern>/VerNivel</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

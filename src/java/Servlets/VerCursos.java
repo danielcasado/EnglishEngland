@@ -6,8 +6,8 @@
 
 package Servlets;
 
-import Model.Profesor;
-import Model.VerProfesor;
+import Model.Curso;
+import Model.VerCurso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author tsubasa
  */
-public class VerProfesores extends HttpServlet {
+public class VerCursos extends HttpServlet {
 
     String inicio = "<div id= \"superior\">\n" +
 "   <div id= \"superior1\">\n" +
@@ -66,9 +66,8 @@ public class VerProfesores extends HttpServlet {
 "            <div id=\"der\">";
     
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -80,32 +79,50 @@ public class VerProfesores extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-        VerProfesor v = new VerProfesor();
-        LinkedList <Profesor>l = v.listaProf();
-        Iterator i = l.iterator();        
+            VerCurso v = new VerCurso();
+            LinkedList <Curso>l = v.listaCurso();
+            Iterator i = l.iterator();
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
             out.println("<head>");
-            out.println("<title>Profesores</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/estilo.css\" />");
+            out.println("<title>Cursos</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println(inicio);
+            out.println(inicio);            
             out.println("<div id='der-cont'>");
-            out.println("<table  cellpadding='15' border='0'> ");
-                     
+            out.println("<table  cellpadding='12'> ");
+            out.println("<tr class=info >");
+            out.println("<td class=info >Nivel");
+            out.println("</td>");
+            out.println("<td class=info >Profesor");
+            out.println("</td>");   
+            out.println("<td class=info >ID");
+            out.println("</td>"); 
+            out.println("<td class=info >Hora Inicio");
+            out.println("</td>");
+            out.println("<td class=info >Hora Final");
+            out.println("</td>");
+            out.println("<td class=info >Fecha Inicio");
+            out.println("</td>");
+            out.println("<td class=info >Fecha Final");
+            out.println("</td>");
+            out.println("<td class=info >");
+            out.println("</td>");
+            out.println("</tr>");
             while(i.hasNext()){
-                Profesor p = (Profesor)i.next();
+                Curso c = (Curso)i.next();
+                String id = c.getCurso_id();
                 out.println("<tr class=info >");
-                out.println("<p> Nombre: "+p.getNombre()+"</p>");
-                out.println("<p> Email: "+p.getEmail()+"</p>");
-                out.println("<form action='InfoProfesor' method='post'>");
-                out.println("<input type='text' class=users name=user value="+p.getNusuario()+"></p>");
-                out.println("<input type='submit' value='Ver informacion'>");
-                out.println("</form>");
+                out.println("<td>"+c.getNivel()+"</td>");
+                out.println("<td>"+c.getProfesor()+"</td>");
+                out.println("<td>"+c.getCurso_id()+"</td>");                
+                out.println("<td>"+c.getHora_Inicio()+"</td>");
+                out.println("<td>"+c.getHora_Final()+"</td>");
+                out.println("<td>"+c.getFecha_Inicio()+"</td>");
+                out.println("<td>"+c.getFecha_Final()+"</td>");
                 out.println("</tr>");
             }
-
             out.println("</table></div></div></body></html>");
         } finally {            
             out.close();
@@ -114,8 +131,7 @@ public class VerProfesores extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -129,8 +145,7 @@ public class VerProfesores extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -152,4 +167,5 @@ public class VerProfesores extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

@@ -10,7 +10,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 /**
  *
@@ -35,7 +34,7 @@ public class VerProfesor {
                 p.setTelefono(rs.getString("telefono"));
                 Statement stmt1 = conex.createStatement();
                 ResultSet rs1 = stmt1.executeQuery("select * from ensenia as e, "
-                       + "curso as c where e.curso_id=e.curso_id and "
+                       + "curso as c where e.curso_id=c.curso_id and "
                        + "e.nUsuario='" + usr + "';");
                 while(rs1.next()){
                     p.agregaCurso(rs1.getString("nivel") + " clave " 
@@ -74,7 +73,7 @@ public class VerProfesor {
                 p.setDir(rs.getString("direccion"));
                 p.setTelefono(rs.getString("telefono"));
                 ResultSet rs1 = stmt.executeQuery("select * from ensenia as e, "
-                       + "curso as c where e.curso_id=e.curso_id and "
+                       + "curso as c where e.curso_id=c.curso_id and "
                        + "e.nUsuario='" + usr + "';");
                 while(rs1.next()){
                     p.agregaCurso(rs1.getString("nivel") + " clave " 

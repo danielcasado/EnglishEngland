@@ -76,75 +76,6 @@ public class AccedeCuenta extends HttpServlet{
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP
-     * <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String usr = request.getParameter("user");
-        String con = request.getParameter("contra");
-        ValidaUsuario v= new ValidaUsuario();
-        String tipo = v.validar(usr, con);
-        PrintWriter out = response.getWriter();
-        if(tipo.equals("err")){
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Error</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println(inicio);
-            out.println("<br><br><br><p class='error'>Contraseña incorrecta</p>");            
-            out.println("</der></body></html>");
-        out.close();
-        }
-        else if(tipo.equals("none")){
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Error</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println(inicio);
-            out.println("<br><br><br><p class='error'>Usuario incorrecto</p>");
-            out.println("</div></body></html>");
-        out.close();
-        }else{
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Error</title>");  
-            out.println("</head>");
-            out.println("<body>eres un "+tipo);
-            out.println("</body></html>");
-        out.close();            
-            
-        }
-    }
-
-    /**
-     * Handles the HTTP
-     * <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
         String usr = request.getParameter("user");
         String con = request.getParameter("contra");
         ValidaUsuario v= new ValidaUsuario();
@@ -193,9 +124,38 @@ public class AccedeCuenta extends HttpServlet{
             out.println("<p>Has ingresado con el usuario "+usr +" de tipo "+tipo+"</p>");
             out.println("<input type='button' value='Home' onClick=\" window.location.href='index.html' \">");
             out.println("</div></div></body></html>");
-        out.close();            
-            
         }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP
+     * <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP
+     * <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**

@@ -77,7 +77,6 @@ public class AceptarProfesor extends HttpServlet {
         PrintWriter out = response.getWriter();   
         VerificarProfesor v = new VerificarProfesor();
         v.aceptaProf(usr);
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -105,25 +104,7 @@ public class AceptarProfesor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String usr = request.getParameter("user");
-        PrintWriter out = response.getWriter();   
-        VerificarProfesor v = new VerificarProfesor();
-        v.aceptaProf(usr);
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Acepta Profesor</title>");  
-            out.println("</head>");
-            out.println("<link rel='stylesheet' type='text/css' href='css/estilo.css' />");
-            out.println("<body>");
-            out.println(inicio);
-            out.println("<div id='der-cont'>");
-            out.println("<br><br><br><p class='mensaje'>Usuario "+ usr +" aceptado</p>");
-            out.println("<input type='button' value='Regresar' onClick=\" window.location.href='VerificarProfesores' \">");
-            out.println("</div></div></body></html>");
-        out.close();
+        processRequest(request, response);
     }
 
     /**
@@ -137,25 +118,7 @@ public class AceptarProfesor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String usr = request.getParameter("user");
-        PrintWriter out = response.getWriter();   
-        VerificarProfesor v = new VerificarProfesor();
-        v.aceptaProf(usr);
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Acepta Profesor</title>");  
-            out.println("</head>");
-            out.println("<link rel='stylesheet' type='text/css' href='css/estilo.css' />");
-            out.println("<body>");
-            out.println(inicio);
-            out.println("<div id='der-cont'>");
-            out.println("<br><br><br><p class='mensaje'>Usuario "+ usr +" aceptado</p>");
-            out.println("<input type='button' value='Regresar' onClick=\" window.location.href='VerificarProfesores' \">");
-            out.println("</div></div></body></html>");
-        out.close();
+        processRequest(request, response);
     }
 
     /**
